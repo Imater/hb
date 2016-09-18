@@ -21,3 +21,8 @@ storiesOf('AvatarList')
       <AvatarList size={40} items={comrades.slice(0,15)} />
     </div>
   ))
+  .addWithInfo('list with big list comrades 50%', () => (
+    <div style={{width: '100%'}}>
+      <AvatarList size={500} items={comrades} />
+    </div>
+  ))

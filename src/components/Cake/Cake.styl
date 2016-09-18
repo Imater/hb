@@ -1,75 +1,90 @@
-$color = red
+$color = #A60003
 .Cake {
   position: relative;
-  background: #EEEEEE
+  display: inline-block;
+  &:hover {
+    .flame {
+      transform: rotate(-80deg);
+    }
+  }
 }
 .dish {
   position: absolute;
   bottom: 0
   left: 0
   right: 0
-  height: 10%
+  height: 11%
   background: $color
-  border-bottom-left-radius: 20px
-  border-bottom-right-radius: 20px
+  border-bottom-left-radius: 20% 50%
+  border-bottom-right-radius: 20% 50%
 }
 .layerBottom {
   position: absolute;
-  bottom: 15%
-  left: 5%
-  right: 5%
-  height: 15%
+  bottom: 12%
+  left: 3%
+  right: 3%
+  height: 20%
   background: $color
 
 }
 .layerTop {
   position: absolute;
   bottom: 35%
-  left: 5%
-  right: 5%
-  height: 15%
-  background: red
+  left: 3%
+  right: 3%
+  height: 14%
+  background: $color
 }
 .cream {
   position: absolute;
-  bottom: 55%
-  left: 3%
-  right: 3%
+  bottom: 52%
+  left: 2%
+  right: 2%
   height: 15%
-  background: red
-  border-bottom-left-radius: 10px
-  border-bottom-right-radius: 10px
-  border-top-left-radius: 5px
-  border-top-right-radius: 5px
+  background: $color
+  border-top-left-radius: 5%
+  border-top-right-radius: 5%
 }
 .candles {
   text-align: center;
-  height: 30%
+  height: 27%
+  white-space: nowrap;
 }
 .candle {
   display: inline-block;
   position: relative;
-  width: 30px
   height: 100%
 }
 .stick {
   position: absolute;
   top: 55%
   left: 10%
-  right: 10%
-  height: 60%
-  background: red
-  border-top-left-radius: 15px
-  border-top-right-radius: 15px
+  right: 0%
+  height: 68%
+  background: $color
+  border-top-left-radius: 20%
+  border-top-right-radius: 20%
 }
 .flame {
   position: absolute;
   top: 0%
   left: 15%
   right: -15%
-  height: 30%
-  background: red
-  border-top-left-radius: 25px
-  border-bottom-right-radius: 15px
-  transform: rotate(-40deg);
+  height: 44%
+  background: $color
+  border-top-left-radius: 50%
+  border-bottom-right-radius: 70%
+  transform: rotate(-30deg);
+  transition all
+  transition-duration 4s
+}
+.Cake {
+  &:hover {
+    .flame {
+      transform: rotate(-60deg) scale(0.6);
+      top: 10%
+      opacity: 0.5
+      transition-duration 0.4s
+    }
+  }
 }

@@ -30,3 +30,19 @@ storiesOf('Cake')
   .addWithInfo('100 candle', () => (
     <Cake size={200} count={100} />
   ))
+  .addWithInfo('all small cakes', () => {
+    const result = []
+    for(let i=0; i<=30; i += 1) {
+      result.push(
+        <div
+          style={{
+            textAlign: 'center',
+            margin: 10
+          }}
+        >
+        <Cake size={40} count={i} />
+        </div>
+      )
+    }
+    return result
+  })

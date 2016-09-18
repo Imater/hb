@@ -1,6 +1,8 @@
 import React, { PureComponent, PropTypes as pt } from 'react'
 import styles from './Cake.styl'
 
+const MAX_COUNT = 25
+
 class Cake extends PureComponent {
 
   static propTypes = {
@@ -13,16 +15,20 @@ class Cake extends PureComponent {
     size: 80
   }
   renderAllCandles = (width, count) => {
+    const { size } = this.props
     const candles = []
-    const margin = (((width - (count * 30)) / count) / 2) * 0.8
+    const margin = ((((100 - (count)) / count) / 2) * 0.6)
+    const candleWidth = (width - (margin * count)) / count / 2
+    const maxCandleWidth = candleWidth > size / 10 ? size / 10 : candleWidth
     for (let index = 0; index < count; index += 1) {
       candles.push(
         <div
           className={styles.candle}
           key={index}
           style={{
-            marginLeft: margin,
-            marginRight: margin
+            marginLeft: `${margin}%`,
+            marginRight: `${margin}%`,
+            width: maxCandleWidth
           }}
         >
           <div className={styles.flame} />
@@ -35,7 +41,8 @@ class Cake extends PureComponent {
 
   render() {
     const { count, size } = this.props
-    const maxCount = count <= 15 ? count : 15
+    const maxCount = count <= MAX_COUNT ? count : MAX_COUNT
+    const radius = size / 10
     const width = size + (size * maxCount * 0.2)
     const height = size
 
@@ -48,10 +55,22 @@ class Cake extends PureComponent {
           {this.renderAllCandles(width, maxCount)}
         </div>
 
-        <div className={styles.cream} />
+        <div
+          className={styles.cream}
+          style={{
+            borderBottomLeftRadius: radius,
+            borderBottomRightRadius: radius
+          }}
+        />
         <div className={styles.layerTop} />
         <div className={styles.layerBottom} />
-        <div className={styles.dish} />
+        <div
+          className={styles.dish}
+          style={{
+            borderBottomLeftRadius: radius,
+            borderBottomRightRadius: radius
+          }}
+        />
       </div>
     )
   }
