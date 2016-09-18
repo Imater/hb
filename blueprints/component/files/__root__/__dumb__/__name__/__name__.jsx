@@ -1,5 +1,5 @@
-import React, { PureComponent, PropTypes as pt } from 'react';
-import classes from './<%= pascalEntityName %>.scss'
+import React, { PureComponent, PropTypes as pt } from 'react'
+import styles from './<%= pascalEntityName %>.styl'
 
 class <%= pascalEntityName %> extends PureComponent {
 
@@ -9,7 +9,7 @@ class <%= pascalEntityName %> extends PureComponent {
 
   render() {
     return (
-      <div className={classes['<%= pascalEntityName %>']}>
+      <div className={styles.<%= pascalEntityName %>}>
         <h1><%= pascalEntityName %></h1>
       </div>
     )

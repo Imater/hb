@@ -1,0 +1,24 @@
+.avatarList {
+  text-align right
+}
+.avatarWrapper {
+  display inline-block
+  position relative
+  &:hover {
+    z-index: 1
+    .comradeName {
+      display block
+    }
+  }
+}
+.comradeName {
+  position absolute
+  top 100%
+  margin-top 10%
+  left -200%
+  right: -200%
+  text-align center
+  display none
+  color #A3232B
+  white-space nowrap
+}

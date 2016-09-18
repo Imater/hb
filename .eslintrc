@@ -6,7 +6,8 @@
   },
   "rules": {
     "complexity": [1, 2],
-    "no-unused-vars": 1,
+    "no-unused-vars": ["error", { "skipShapeProps": true}],
+    "react/no-unused-prop-types": ["error", { "skipShapeProps": true}],
     "no-case-declarations": 0,
     "no-param-reassign": ["error", { "props": false }],
     "comma-dangle": [2, "never"],
