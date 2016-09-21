@@ -58,7 +58,7 @@ storiesOf('Slider')
   .addWithInfo('Default with children', () => (
     <Slider>Slider</Slider>
   ))
-  .addWithInfo('current', () => (
+  .addWithInfo('horizontal slider', () => (
     <div
       style={{
         width: 800,
@@ -67,6 +67,21 @@ storiesOf('Slider')
     >
       <DecoratedSlider
         current={0}
+        direction='horizontal'
+        slides={elementSlides}
+      />
+    </div>
+  ))
+  .addWithInfo('vertical slider', () => (
+    <div
+      style={{
+        width: 800,
+        height: 500
+      }}
+    >
+      <DecoratedSlider
+        current={0}
+        direction='vertical'
         slides={elementSlides}
       />
     </div>

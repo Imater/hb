@@ -5,37 +5,47 @@
   overflow hidden
 }
 .slideWrapper {
-  display inline-block
   height 100%
   width 100%
 }
-.slidesWrapper {
+.slidesWrapperCommon {
   position relative
   height 100%
   width 100%
-  white-space nowrap
   transition 1s
 }
-.arrowLeft {
+.slidesWrapperVertical {
+  composes slidesWrapperCommon
+  .slideWrapper {
+    display block
+  }
+}
+.slidesWrapperHorizontal {
+  composes slidesWrapperCommon
+  white-space nowrap
+  .slideWrapper {
+    display inline-block
+  }
+}
+.arrowCommon {
   cursor pointer
   position absolute
-  left 0
   top 0
   bottom 0
-  width: 25%;
-  border: 0
   outline none
   background none
+  margin 0
+  padding 0
+  border 0
+}
+.arrowLeft {
+  composes arrowCommon
+  left 0
+  width 25%
 }
 
 .arrowRight {
-  cursor pointer
-  position absolute
+  composes arrowCommon
   right 0
-  top 0
-  bottom 0
-  width: 75%;
-  border: 0
-  outline none
-  background none
+  width 75%
 }
