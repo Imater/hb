@@ -22,7 +22,7 @@ storiesOf('AvatarList')
     </div>
   ))
   .addWithInfo('list with big list comrades 50%', () => (
-    <div style={{width: '100%'}}>
-      <AvatarList size={500} items={comrades} />
+    <div style={{width: '50%'}}>
+      <AvatarList size={40} items={comrades} />
     </div>
   ))
