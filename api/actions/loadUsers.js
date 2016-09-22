@@ -1,9 +1,7 @@
-const initialState = {
-  data: {
-    companyName: 'test user 7'
-  }
-}
+import db from '../db'
 
 export default function loadUsers() {
-  return Promise.resolve(initialState)
+  return new Promise(resolve => {
+    db.models.user.findAll({}).then(resolve)
+  })
 }

@@ -18,6 +18,14 @@ export default Object.assign({
     client_id: 'node_thing',
     client_secret: 'e4c25cec64c71d10001ae4c768fb9fc76c5191be'
   },
+  db: {
+    host: '127.0.0.1',
+    port: 3306,
+    name: 'hb',
+    username: 'hbuser',
+    password: 'hbpassword',
+    dialect: 'mysql'
+  },
   authServer: 'http://connect.4redux.ru',
   apiServer: 'http://api.4redux.ru',
   app: {
