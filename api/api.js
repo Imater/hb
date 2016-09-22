@@ -1,5 +1,4 @@
 import express from 'express'
-import session from 'express-session'
 import bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 import PrettyError from 'pretty-error'
@@ -17,16 +16,9 @@ const server = new http.Server(app)
 const io = new SocketIo(server)
 io.path('/ws')
 
-app.use(session({
-  secret: 'react and redux rule!!!!',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 60000 }
-}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride())
-app.use(session({ secret: 'keyboard', resave: false, saveUninitialized: false }))
 
 app.use((req, res) => {
   const splittedUrlPath = req.url.split('?')[0].split('/').slice(1)

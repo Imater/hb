@@ -46,3 +46,4 @@ global.webpackIsomorphicTools = new WebpackIsomorphicTools(require('../webpack/w
   .server(rootDir, () => {
     require('../src/server') // eslint-disable-line global-require
   })
+
