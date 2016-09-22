@@ -25,8 +25,8 @@ class Image extends PureComponent {
       <div
         className={`${styles.Image} ${styles[mode]}`}
         style={{
-          width: width,
-          height: height,
+          width,
+          height,
           backgroundImage: `url(${url})`,
           backgroundColor: color
         }}

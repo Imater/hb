@@ -3,7 +3,8 @@ import storiesOf from '../../utils/storiesOf'
 import Slider from '.'
 import Text from '../Text'
 import Image from '../Image'
-import stateDecorator from '../../helpers/decorators/stateDecorator.jsx'
+import stateDecorator from '../../helpers/decorators/stateDecorator'
+import comrades from '../AvatarList/comrades'
 
 const slides = [
   {
@@ -49,6 +50,21 @@ const elementSlides = slides.map(item => (
   </Image>
 ))
 
+const comradesSlides = comrades.map(item => (
+  <Image mode='contain' height='100%' width='100%' url={item.avatar1024}>
+    <Text
+      style={{
+        color: 'white',
+        left: '35%',
+        top: '75%',
+        ...item.textStyle
+      }}
+    >
+      {item.name}
+    </Text>
+  </Image>
+))
+
 const DecoratedSlider = stateDecorator('current', 0)(Slider)
 
 storiesOf('Slider')
@@ -83,6 +99,20 @@ storiesOf('Slider')
         current={0}
         direction='vertical'
         slides={elementSlides}
+      />
+    </div>
+  ))
+  .addWithInfo('horizontal slider with comrades', () => (
+    <div
+      style={{
+        width: 800,
+        height: 500
+      }}
+    >
+      <DecoratedSlider
+        current={0}
+        direction='horizontal'
+        slides={comradesSlides}
       />
     </div>
   ))

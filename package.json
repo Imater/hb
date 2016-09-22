@@ -24,6 +24,8 @@
   "scripts": {
     "start": "concurrent --kill-others \"npm run start-prod\"",
     "start-prod": "better-npm-run start-prod",
+    "start-prod-api": "better-npm-run start-prod-api",
+    "start-dev-api": "better-npm-run start-prod-api",
     "build": "concurrent --kill-others \"better-npm-run build\" \"npm run build-storybook\"",
     "lint": "eslint -c .eslintrc src api --ext js,jsx",
     "lint-fix": "eslint -c .eslintrc src api --ext js,jsx --fix",
@@ -31,7 +33,7 @@
     "start-dev-render-on-client": "better-npm-run start-dev-render-on-client",
     "watch-client": "better-npm-run watch-client",
     "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\" ",
-    "dev-render-on-client": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev-render-on-client\" ",
+    "dev-render-on-client": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev-render-on-client\" \"npm run start-dev-api\"",
     "test": "better-npm-run test",
     "test-node": "./node_modules/mocha/bin/mocha $(find api -name '*.test.js') --compilers js:babel-core/register",
     "test-node-watch": "./node_modules/mocha/bin/mocha $(find api -name '*.test.js') --compilers js:babel-core/register --watch",
@@ -45,6 +47,16 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
         "PORT": 8080
+      }
+    },
+    "start-prod-api": {
+      "command": "node --harmony ./bin/api.js",
+      "env": {
+        "NODE_PATH": "./api",
+        "NODE_ENV": "production",
+        "GITHUB_CLIENT_ID": "078c91071605c49f3293",
+        "GITHUB_CLIENT_SECRET": "da28a391c4c5313dd786287608a7b25bb12666c1",
+        "APIPORT": 3031
       }
     },
     "start-dev": {
@@ -62,14 +74,16 @@
         "NODE_PATH": "./src",
         "__DISABLE_SSR__": true,
         "NODE_ENV": "development",
-        "PORT": 3000
+        "PORT": 3000,
+        "APIPORT": 3031
       }
     },
     "watch-client": {
       "command": "node ./bin/webpack.js",
       "env": {
         "UV_THREADPOOL_SIZE": 100,
-        "NODE_PATH": "./src/"
+        "NODE_PATH": "./src/",
+        "APIPORT": 3031
       }
     },
     "build": {

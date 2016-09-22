@@ -82,13 +82,13 @@ class Slider extends PureComponent {
 
   shake = index => {
     this.setState({
-      offset: index < 0 ? -30 : 30
+      offset: index < 0 ? -10 : 10
     })
     setTimeout(() => {
       this.setState({
         offset: 0
       })
-    }, 200)
+    }, 400)
   }
 
   setCurrent = index => {
