@@ -8,7 +8,6 @@ import { renderToStaticMarkup, renderToString } from 'react-dom/server'
 import favicon from 'serve-favicon'
 import compression from 'compression'
 import bodyParser from 'body-parser'
-import session from 'express-session'
 import httpProxy from 'http-proxy'
 import cookieParser from 'cookie-parser'
 import reactCookie from 'react-cookie'
@@ -58,7 +57,11 @@ const proxyUpload = httpProxy.createProxyServer({
 app.use(compression())
 app.use(cookieParser())
 app.use(bodyParser.json())
-app.use(session({ secret: 'keyboard relef', resave: false, saveUninitialized: false }))
+
+const { slack, host, port } = config
+app.get('/auth/slack', (req, res) =>
+  res.redirect(`${slack.authUrl}?redirect=http://${host}:${port}/api/auth/slack/callback`)
+)
 
 app.use(favicon(path.join(__dirname, '..', 'static', 'favicon.ico')))
 

@@ -26,6 +26,17 @@ export default Object.assign({
     password: 'hbpassword',
     dialect: 'mysql'
   },
+  slack: {
+    authUrl: process.env.SLACK_AUTH_URL || 'http://auth.csssr.ru/slack',
+    channel: 'hr',
+    bot: {
+      token: 'xoxb-7333141218-hgOnwEYt57DnnWl5szpu4Zdv',
+      username: 'CSSSR HR',
+      icon_emoji: ':rocket:',
+      as_user: true,
+      refresh: 1000 * 60 * 5
+    }
+  },
   authServer: 'http://connect.4redux.ru',
   apiServer: 'http://api.4redux.ru',
   app: {
