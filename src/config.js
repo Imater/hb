@@ -30,7 +30,7 @@ export default Object.assign({
     authUrl: process.env.SLACK_AUTH_URL || 'http://auth.csssr.ru/slack',
     channel: 'hr',
     bot: {
-      token: 'xoxb-7333141218-hgOnwEYt57DnnWl5szpu4Zdv',
+      token: process.env.SLACK_BOT_TOKEN,
       username: 'CSSSR HR',
       icon_emoji: ':rocket:',
       as_user: true,
