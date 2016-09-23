@@ -19,20 +19,20 @@ export default Object.assign({
     client_secret: 'e4c25cec64c71d10001ae4c768fb9fc76c5191be'
   },
   db: {
-    host: '127.0.0.1',
-    port: 3306,
-    name: 'hb',
-    username: 'hbuser',
-    password: 'hbpassword',
-    dialect: 'mysql'
+    host: process.env.DB_HOST || '127.0.0.1',
+    port: process.env.DB_PORT || 3306,
+    name: process.env.DB_NAME || 'hb',
+    username: process.env.DB_USER || 'hbuser',
+    password: process.env.DB_USERPASSWORD || 'hbpassword',
+    dialect: process.env.DB_DIALECT || 'mysql'
   },
   slack: {
     authUrl: process.env.SLACK_AUTH_URL || 'http://auth.csssr.ru/slack',
-    channel: 'hr',
+    channel: process.env.SLACK_CHANNEL || 'hr',
     bot: {
       token: process.env.SLACK_BOT_TOKEN,
-      username: 'CSSSR HR',
-      icon_emoji: ':rocket:',
+      username: process.env.SLACK_BOT_USERNAME || 'CSSSR HR',
+      icon_emoji: process.env.SLACK_BOT_EMOJI || ':rocket:',
       as_user: true,
       refresh: 1000 * 60 * 5
     }
